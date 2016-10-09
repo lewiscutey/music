@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐播放器</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <!--<audio controls src="mp3/宋冬野 - 斑马,斑马.mp3" id="audio"></audio>-->
+    <audio style="display:none" src="mp3/宋冬野 - 斑马,斑马.mp3" controls id="audio"></audio>
+
+<!--开始闪屏效果开始-->
+    <div class="screen">
+        <div class="img1"></div>
+        <div class="img2"></div>
+        <div class="img3"></div>
+    </div>
+<!--开始闪屏效果结束-->
+
+<!--主音乐功能开始-->
+<div class="music">
+    <div class="nav">
+        <div class="nav-item"><img class="n1" src="img/huaijiu.png"></div>
+        <div class="nav-item"><img src="img/wangluo.png"></div>
+        <div class="nav-item"><img src="img/weimei.png"></div>
+        <div class="nav-item"><img src="img/shanggan.png"></div>
+    </div>
+    <div class="list">
+        <ul class="music-list list1"></ul>
+        <ul class="music-list list2">
+            <div id="box">
+                <ul>
+                    <li>《斑马斑马》</li>
+                    <br>
+                    <li>--宋冬野</li>
+                    <br>
+                    <li>斑马，斑马 你不要睡着啦</li>
+                    <li>再给我看看你受伤的尾巴</li>
+                    <li>我不想去触碰你伤口的疤</li>
+                    <li>我只想掀起你的头发</li>
+                    <li>斑马，斑马 你回到了你的家</li>
+                    <li>可我浪费着我寒冷的年华</li>
+                    <li>你的城市没有一扇门为我打开啊</li>
+                    <li>我终究还要回到路上</li>
+                    <li>斑马，斑马，你来自南方的红色啊</li>
+                    <li>是否也是个动人的故事啊</li>
+                    <li>你隔壁的戏子如果不能留下</li>
+                    <li>谁会和你睡到天亮</li>
+                    <li>斑马，斑马 你还记得我吗 </li>
+                    <li>我是只会歌唱的傻瓜</li>
+                    <li>斑马，斑马 你睡吧睡吧</li>
+                    <li>我会背上吉他离开北方</li>
+                    <li>斑马，斑马 你还记得我吗</li>
+                    <li>我是强说着忧愁的孩子啊</li>
+                    <li>斑马，斑马 你睡吧睡吧</li>
+                    <li>我把你的青草带回故乡</li>
+                    <li>斑马，斑马 你不要睡着啦</li>
+                    <li>我只是个匆忙的旅人啊 </li>
+                    <li>斑马，斑马 你睡吧睡吧</li>
+                    <li>我要卖掉我的房子</li>
+                    <li>浪迹天涯 </li>
+                </ul>
+            </div>
+        </ul>
+        <ul class="music-list list3"></ul>
+        <ul class="music-list list4"></ul>
+    </div>
+    <div class="controler">
+        <div class="star"></div>
+        <div class="info">
+            <div class="info-radio"></div>
+            <div class="info-lyric"></div>
+            <div class="info-list"></div>
+            <div class="info-name"></div>
+            <div class="info-op">
+                <div class="info-op-like"></div>
+                <div class="info-op-share"></div>
+                <div class="info-op-collect"></div>
+            </div>
+        </div>
+        <div class="control">
+            <div class="prev" title="上一首"></div>
+            <div class="play" title="播放"></div>
+            <div class="next" title="下一首"></div>
+            <div class="cycle cyclee cycleee" title="顺序循环"></div>
+            <div class="cycle1 cyclee" title="随机循环"></div>
+            <div class="cycle2 cyclee" title="单曲循环"></div>
+            <div class="cycle3 cyclee" title="列表循环"></div>
+            <div class="volume">
+                <div class="volume-mute" title="点击设置为静音"></div>
+                <div class="volume-regulate">
+                    <div class="volume-bar"></div>
+                    <div class="volume-op"></div>
+                </div>
+            </div>
+            <div class="time">
+                <div class="nowtime">00:00</div>
+                <div class="time-regulate">
+                    <div class="time-bar"></div>
+                    <div class="time-op"></div>
+                </div>
+                <div class="alltime">00:00</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--主音乐功能开始-->
+
+<!--星空特效开始-->
+<div class="canvaszz"></div>
+<canvas id="canvas"></canvas>
+<!--星空特效结束-->
+
+<!--星空特效开始-->
+<script>
+        //宇宙特效
+        "use strict";
+        var canvas = document.getElementById('canvas'),
+                ctx = canvas.getContext('2d'),
+                w = canvas.width = window.innerWidth,
+                h = canvas.height = window.innerHeight,
+
+                hue = 217,
+                stars = [],
+                count = 0,
+                maxStars = 1300;//星星数量
+
+        var canvas2 = document.createElement('canvas'),
+                ctx2 = canvas2.getContext('2d');
+        canvas2.width = 100;
+        canvas2.height = 100;
+        var half = canvas2.width / 2,
+                gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
+        gradient2.addColorStop(0.025, '#CCC');
+        gradient2.addColorStop(0.1, 'hsl(' + hue + ', 61%, 33%)');
+        gradient2.addColorStop(0.25, 'hsl(' + hue + ', 64%, 6%)');
+        gradient2.addColorStop(1, 'transparent');
+
+        ctx2.fillStyle = gradient2;
+        ctx2.beginPath();
+        ctx2.arc(half, half, half, 0, Math.PI * 2);
+        ctx2.fill();
+
+        // End cache
+
+        function random(min, max) {
+            if (arguments.length < 2) {
+                max = min;
+                min = 0;
+            }
+
+            if (min > max) {
+                var hold = max;
+                max = min;
+                min = hold;
+            }
+
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function maxOrbit(x, y) {
+            var max = Math.max(x, y),
+                    diameter = Math.round(Math.sqrt(max * max + max * max));
+            return diameter / 2;
+            //星星移动范围，值越大范围越小，
+        }
+
+        var Star = function() {
+
+            this.orbitRadius = random(maxOrbit(w, h));
+            this.radius = random(60, this.orbitRadius) / 8;
+            //星星大小
+            this.orbitX = w / 2;
+            this.orbitY = h / 2;
+            this.timePassed = random(0, maxStars);
+            this.speed = random(this.orbitRadius) / 50000;
+            //星星移动速度
+            this.alpha = random(2, 10) / 10;
+
+            count++;
+            stars[count] = this;
+        }
+
+        Star.prototype.draw = function() {
+            var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
+                    y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
+                    twinkle = random(10);
+
+            if (twinkle === 1 && this.alpha > 0) {
+                this.alpha -= 0.05;
+            } else if (twinkle === 2 && this.alpha < 1) {
+                this.alpha += 0.05;
+            }
+
+            ctx.globalAlpha = this.alpha;
+            ctx.drawImage(canvas2, x - this.radius / 2, y - this.radius / 2, this.radius, this.radius);
+            this.timePassed += this.speed;
+        }
+
+        for (var i = 0; i < maxStars; i++) {
+            new Star();
+        }
+
+        function animation() {
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.globalAlpha = 0.5; //尾巴
+            ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 2)';
+            ctx.fillRect(0, 0, w, h)
+
+            ctx.globalCompositeOperation = 'lighter';
+            for (var i = 1, l = stars.length; i < l; i++) {
+                stars[i].draw();
+            };
+
+            window.requestAnimationFrame(animation);
+        }
+
+        animation();
+    </script>
+<!--星空特效结束-->
+</body>
+</html>

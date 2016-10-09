@@ -1,0 +1,698 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  overflow: hidden;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+  /*默认全屏显示 可自己设置高度640px*/
+  display: inline-block;
+  vertical-align: baseline;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  z-index: -2;
+}
+
+.canvaszz {
+  width: 100%;
+  height: 700px;
+  background-image: url(../img/in_top_bj.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  margin: auto;
+  filter: alpha(opacity=40);
+  -moz-opacity: 0.4;
+  -khtml-opacity: 0.4;
+  opacity: 0.4;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-image: url(../img/in_top_bj.jpg);
+  background-size: cover;
+  z-index: 10;
+}
+
+.screen .img1 {
+  width: 500px;
+  height: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-image: url(../img/word2.png);
+  background-size: cover;
+  z-index: 11;
+  display: block;
+  cursor: pointer;
+  opacity: 0;
+  animation: myfirst 4s linear 0s alternate;
+}
+
+@keyframes myfirst {
+  0% {
+    transform: scale(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(0.5, 0.5) rotate(360deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1, 1) rotate(720deg);
+    opacity: 0.7;
+  }
+  75% {
+    transform: scale(1.5, 1.5) rotate(1080deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0, 0) rotate(1080deg);
+    opacity: 0;
+  }
+}
+
+.screen .img2 {
+  width: 500px;
+  height: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-image: url(../img/word1.png);
+  background-size: cover;
+  z-index: 11;
+  opacity: 0;
+  animation: myfirst1 4s linear 4s alternate;
+}
+
+@keyframes myfirst1 {
+  0% {
+    transform: scale(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(0.5, 0.5) rotate(360deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1, 1) rotate(720deg);
+    opacity: 0.7;
+  }
+  75% {
+    transform: scale(1.5, 1.5) rotate(1080deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5, 1.5) rotate(1080deg);
+    opacity: 0;
+  }
+}
+
+.screen .img3 {
+  width: 500px;
+  height: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-image: url(../img/img3.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  z-index: 11;
+  opacity: 0;
+  animation: myfirst2 4s linear 8s alternate;
+}
+
+@keyframes myfirst2 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.music {
+  width: 600px;
+  height: 500px;
+  margin: 20px auto;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.nav .nav-item {
+  width: 100px;
+  height: 50px;
+  padding: 10px 25px;
+  float: left;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.nav .nav-item img {
+  width: 100px;
+  opacity: 0.8;
+  transition: transform .5s ease,opacity .5s ease;
+}
+
+.nav .nav-item img:hover {
+  transform: scale(1.1, 1.1);
+  opacity: 1;
+}
+
+.nav .nav-item img.n1 {
+  transform: scale(1.1, 1.1);
+  opacity: 1;
+}
+
+.list {
+  width: 100%;
+  height: 350px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.list .music-list {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.list .music-list li {
+  width: 100%;
+  color: #00AA88;
+  font-size: 14px;
+  line-height: 30px;
+  cursor: pointer;
+  position: relative;
+}
+
+.list .music-list li span1 {
+  display: inline-block;
+  width: 200px;
+  margin-left: 40px;
+}
+
+.list .music-list li span2 {
+  display: inline-block;
+  width: 50px;
+  margin-left: 110px;
+}
+
+.list .music-list li span3 {
+  display: inline-block;
+  width: 50px;
+  margin-left: 100px;
+}
+
+.list .music-list li span4 {
+  position: absolute;
+  bottom: 8px;
+  right: -18px;
+  width: 150px;
+  display: none;
+}
+
+.list .music-list li span4 samp1 {
+  width: 16px;
+  height: 14px;
+  float: left;
+  cursor: pointer;
+  margin-left: 10px;
+  background: url(../img/bg.png) -32px -128px;
+}
+
+.list .music-list li span4 samp1:hover {
+  background: url(../img/bg.png) -32px -146px;
+}
+
+.list .music-list li span4 samp2 {
+  width: 16px;
+  height: 14px;
+  float: left;
+  cursor: pointer;
+  margin-left: 10px;
+  background: url(../img/bg.png) -47px -128px;
+}
+
+.list .music-list li span4 samp2:hover {
+  background: url(../img/bg.png) -47px -146px;
+}
+
+.list .music-list li span4 samp3 {
+  width: 16px;
+  height: 14px;
+  float: left;
+  cursor: pointer;
+  margin-left: 10px;
+  background: url(../img/bg.png) -64px -128px;
+}
+
+.list .music-list li span4 samp3:hover {
+  background: url(../img/bg.png) -64px -146px;
+}
+
+.list .music-list li span4 samp4 {
+  width: 16px;
+  height: 14px;
+  float: left;
+  cursor: pointer;
+  margin-left: 10px;
+  background: url(../img/bg.png) -95px -128px;
+}
+
+.list .music-list li span4 samp4:hover {
+  background: url(../img/bg.png) -80px -146px;
+}
+
+.list .music-list li:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+}
+
+.list .music-list li.active {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #0CC65B;
+}
+
+.list .list2 {
+  display: none;
+}
+
+.list .list2 #box {
+  height: 300px;
+  width: inherit;
+  overflow: hidden;
+}
+
+.list .list2 #box ul li {
+  text-align: center;
+  display: list-item;
+}
+
+.controler {
+  width: 600px;
+  height: 100px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.controler .star {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  float: left;
+  border: 1px solid rebeccapurple;
+  border-radius: 50%;
+  background-image: url(../img/end.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-transform: rotate(360deg);
+  animation: rotation 5s linear infinite;
+  -moz-animation: rotation 5s linear infinite;
+  -webkit-animation: rotation 5s linear infinite;
+  -o-animation: rotation 5s linear infinite;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.controler .info {
+  width: 150px;
+  height: 80px;
+  float: left;
+  margin: 10px 0;
+  position: relative;
+}
+
+.controler .info .info-radio {
+  width: 75px;
+  height: 20px;
+  background: url(../img/bg.png) -453px -55px;
+}
+
+.controler .info .info-lyric {
+  position: absolute;
+  top: 0;
+  left: 90px;
+  width: 20px;
+  height: 20px;
+  background: url(../img/bg.png) -450px 3px;
+}
+
+.controler .info .info-lyric:hover {
+  background: url(../img/bg.png) -473px 3px;
+}
+
+.controler .info .info-lyric.active {
+  background: url(../img/bg.png) -473px 3px;
+}
+
+.controler .info .info-list {
+  position: absolute;
+  top: 0;
+  left: 120px;
+  width: 20px;
+  height: 20px;
+  background: url(../img/bg.png) -300px -35px;
+}
+
+.controler .info .info-list:hover {
+  background: url(../img/bg.png) -300px -63px;
+}
+
+.controler .info .info-list.active {
+  background: url(../img/bg.png) -300px -63px;
+}
+
+.controler .info .info-name {
+  color: #FFF;
+  font-size: 14px;
+  line-height: 20px;
+  height: 20px;
+  width: 150px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.controler .info .info-op {
+  height: 20px;
+  margin-top: 10px;
+}
+
+.controler .info .info-op .info-op-like {
+  float: left;
+  width: 16px;
+  height: 14px;
+  margin-right: 10px;
+  cursor: pointer;
+  background: url(../img/bg.png) 0 -127px;
+}
+
+.controler .info .info-op .info-op-like:hover {
+  background: url(../img/bg.png) -80px -127px;
+}
+
+.controler .info .info-op .info-op-share {
+  float: left;
+  width: 16px;
+  height: 14px;
+  margin-right: 10px;
+  cursor: pointer;
+  background: url(../img/bg.png) -16px -127px;
+}
+
+.controler .info .info-op .info-op-share:hover {
+  background: url(../img/bg.png) -16px -145px;
+}
+
+.controler .info .info-op .info-op-collect {
+  float: left;
+  width: 16px;
+  height: 14px;
+  margin-right: 10px;
+  cursor: pointer;
+  background: url(../img/bg.png) -65px -127px;
+}
+
+.controler .info .info-op .info-op-collect:hover {
+  background: url(../img/bg.png) -65px -145px;
+}
+
+.controler .control {
+  width: 325px;
+  height: 80px;
+  margin: 10px;
+  float: left;
+  border: 1px solid rebeccapurple;
+  border-radius: 10px;
+  position: relative;
+}
+
+.controler .control .prev {
+  width: 36px;
+  height: 28px;
+  float: left;
+  margin: 10px;
+  margin-right: 0;
+  background: url(../img/bg.png) -69px 0;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.controler .control .prev:hover {
+  background-position: -69px -32px;
+}
+
+.controler .control .play {
+  width: 42px;
+  height: 42px;
+  background: url(../img/bg.png) -105px 0;
+  float: left;
+  margin: 3px 0 0 10px;
+  cursor: pointer;
+}
+
+.controler .control .play:hover {
+  background-position: -105px -42px;
+}
+
+.controler .control .play.pause {
+  width: 42px;
+  height: 42px;
+  background: url(../img/bg.png) -333px -88px;
+  float: left;
+  margin: 3px 0 0 10px;
+  cursor: pointer;
+}
+
+.controler .control .next {
+  background: url(../img/bg.png) -147px 0;
+  vertical-align: top;
+  width: 36px;
+  height: 28px;
+  float: left;
+  margin: 10px;
+  margin-right: 0;
+  cursor: pointer;
+}
+
+.controler .control .next:hover {
+  background-position: -147px -32px;
+}
+
+.controler .control .cyclee {
+  display: block;
+  vertical-align: top;
+  width: 36px;
+  height: 28px;
+  cursor: pointer;
+  position: absolute;
+  left: 154px;
+}
+
+.controler .control .cycleee {
+  top: 10px;
+}
+
+.controler .control .cycle {
+  background: url(../img/bg.png) -219px 0;
+  top: 10px;
+}
+
+.controler .control .cycle:hover {
+  background-position: -219px -32px;
+}
+
+.controler .control .cycle1 {
+  top: -20px;
+  display: none;
+  background: url(../img/bg.png) -255px 0px;
+}
+
+.controler .control .cycle1:hover {
+  background: url(../img/bg.png) -255px -32px;
+}
+
+.controler .control .cycle2 {
+  top: -50px;
+  display: none;
+  background: url(../img/bg.png) -291px -29px;
+}
+
+.controler .control .cycle2:hover {
+  background: url(../img/bg.png) -291px -57px;
+}
+
+.controler .control .cycle3 {
+  top: -80px;
+  display: none;
+  background: url(../img/bg.png) -327px -29px;
+}
+
+.controler .control .cycle3:hover {
+  background: url(../img/bg.png) -327px -57px;
+}
+
+.controler .control .volume {
+  width: 100px;
+  height: 24px;
+  float: left;
+  margin: 10px;
+  margin-left: 60px;
+}
+
+.controler .control .volume .volume-mute {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background: url(../img/bg.png) -189px -3px;
+  float: left;
+  margin-top: 3px;
+}
+
+.controler .control .volume .volume-mute:hover {
+  background-position: -189px -35px;
+}
+
+.controler .control .volume .volume-mute.volume0 {
+  background-position: -189px -63px;
+}
+
+.controler .control .volume .volume-regulate {
+  font-size: 0;
+  background: url(../img/bg.png) -291px -11px;
+  display: inline-block;
+  width: 70px;
+  height: 10px;
+  cursor: pointer;
+  float: right;
+  margin-top: 10px;
+  position: relative;
+}
+
+.controler .control .volume .volume-regulate .volume-bar {
+  background: url(../img/bg.png) -291px 0;
+  display: inline-block;
+  width: 50%;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.controler .control .volume .volume-regulate .volume-op {
+  background: url(../img/bg.png) -366px 0;
+  width: 6px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+.controler .control .time {
+  width: 320px;
+  height: 30px;
+  float: left;
+}
+
+.controler .control .time .nowtime {
+  width: 30px;
+  font-size: 18px;
+  line-height: 30px;
+  color: #7C7C7C;
+  float: left;
+  margin-left: 6px;
+}
+
+.controler .control .time .time-regulate {
+  float: left;
+  width: 200px;
+  background: #323232;
+  height: 4px;
+  position: relative;
+  cursor: pointer;
+  margin-left: 25px;
+  margin-top: 13px;
+}
+
+.controler .control .time .time-regulate .time-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #0cc65b;
+  height: 4px;
+  cursor: pointer;
+}
+
+.controler .control .time .time-regulate .time-op {
+  width: 6px;
+  height: 6px;
+  border: 2px solid white;
+  background-color: #0cc65b;
+  border-radius: 50%;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  cursor: pointer;
+}
+
+.controler .control .time .alltime {
+  width: 30px;
+  font-size: 18px;
+  line-height: 30px;
+  color: #7C7C7C;
+  float: left;
+  margin-left: 12px;
+}
